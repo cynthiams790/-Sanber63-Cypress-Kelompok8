@@ -4,6 +4,6 @@
 2. Jihan Nabila Arini (jihannabilaar) -
 3. Silmi Rahmadina (silmidina)-
 4. Mochammad Zulfiqar Dairam Al Zaby (zulfiqaralzaby)- 
-5. Lalais Manoban (listrasidabutar27)-
+5. Lalalis Manoban (listrasidabutar27)-
 6. Cynthia Maulida Sari (cynthiams790)- 
 7. Rahma (fathr) - 
