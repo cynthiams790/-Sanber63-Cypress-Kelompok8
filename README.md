@@ -1,9 +1,9 @@
 # -Sanber63-Cypress-Kelompok8
 
-1. Haris Chaerisma - Create New Account
-2. Jihan Nabila Arini -
-3. Silmi Rahmadina -
-4. Mochammad Zulfiqar Dairam Al Zaby - 
-5. Lalais Manoban -
-6. Cynthia Maulida Sari - 
-7. Rahma - 
+1. Haris Chaerisma ()- Create New Account
+2. Jihan Nabila Arini (jihannabilaar) -
+3. Silmi Rahmadina (silmidina)-
+4. Mochammad Zulfiqar Dairam Al Zaby (zulfiqaralzaby)- 
+5. Lalais Manoban (listrasidabutar27)-
+6. Cynthia Maulida Sari (cynthiams790)- 
+7. Rahma (fathr) - 
