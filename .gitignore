@@ -1,3 +1,3 @@
-cypress\fixtures
-cypress\support
-cypress.config.js
+cypress\fixtures\example.js
+cypress\support\command.js
+cypress\support\e2e.js
