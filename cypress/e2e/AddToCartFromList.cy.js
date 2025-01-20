@@ -5,17 +5,12 @@ describe('User can add product to cart from list', () => {
   beforeEach(() => {
     cy.visit('')
   })
-  it('Plus 1 to current amount on cart', () => {
+  it('Add to cart without login', () => {
     homePage.clickheroHoodieXS()
     homePage.clickheroHoodieGray()
     homePage.addheroHoodie()
     homePage.verifyCartCounter()
     homePage.verifySuccessMessage()
-  })
-  it('Display correct details on cart', () => {
-    homePage.clickheroHoodieXS()
-    homePage.clickheroHoodieGray()
-    homePage.addheroHoodie()
     homePage.verifyItemCountInCart()
     homePage.verifyCartSubtotal()
     homePage.verifyItemName()
@@ -24,7 +19,24 @@ describe('User can add product to cart from list', () => {
     homePage.verifyItemColor()
     homePage.verifyItemPrice()
   })
-  it('Display message on detail page if click add to cart without choose options', () => {
+  it('Add to cart with login', () => {
+    cy.fixture("user.json").then((user) => {
+      cy.loginEdit(user.email, user.password)
+    })
+    homePage.clickheroHoodieXS()
+    homePage.clickheroHoodieGray()
+    homePage.addheroHoodie()
+    homePage.verifyCartCounter()
+    homePage.verifySuccessMessage()
+    homePage.verifyItemCountInCart()
+    homePage.verifyCartSubtotal()
+    homePage.verifyItemName()
+    homePage.clickDetails()
+    homePage.verifyItemSize()
+    homePage.verifyItemColor()
+    homePage.verifyItemPrice()
+  })
+  it('Add to cart without choose options - Negative', () => {
     homePage.addheroHoodie()
     productDetailPage.verifyWarningMessage()
     productDetailPage.clickHomePageNavigation()
