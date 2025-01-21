@@ -1,4 +1,4 @@
-import editAccount from '../support/pageObject/editAccount';
+import editAccount from '../support/pageObjects/editAccount';
 
 describe('Edit Account Validation', () => {
   beforeEach(() => {
@@ -31,7 +31,7 @@ describe('Edit Account Validation', () => {
     editAccount.ErrorLasName()
   });
 
-  it.only('First Name and Last Name Empty - Negative', () => {
+  it('First Name and Last Name Empty - Negative', () => {
     editAccount.ClearFirstName()
     editAccount.ClearLastName()
     editAccount.ClickButtonSave()

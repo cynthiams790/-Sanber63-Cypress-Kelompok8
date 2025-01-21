@@ -1,4 +1,4 @@
-import editChangeEmail from '../support/pageObject/editChangeEmail';
+import editChangeEmail from '../support/pageObjects/editChangeEmail';
 
 describe('Edit Change Email', () => {
   beforeEach(() => {
@@ -37,7 +37,7 @@ describe('Edit Change Email', () => {
     editChangeEmail.VerifyError()
   });
   
-  it.only('Email and Password Empty - Negative', () => {
+  it('Email and Password Empty - Negative', () => {
     editChangeEmail.clickChangeEmail()
     editChangeEmail.textChangeEmail()
     editChangeEmail.ClearEmail()
@@ -45,5 +45,5 @@ describe('Edit Change Email', () => {
     editChangeEmail.ClickButtonSave()
     editChangeEmail.ErrorEmptyEmail()
     editChangeEmail.ErrorEmptyCurrentPassword() 
- });
+  });
 });

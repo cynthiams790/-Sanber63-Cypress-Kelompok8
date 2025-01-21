@@ -1,4 +1,4 @@
-import editChangePassword from '../support/pageObject/editChangePassword';
+import editChangePassword from '../support/pageObjects/editChangePassword';
 
 describe('Edit Change Password', () => {
   beforeEach(() => {
@@ -40,7 +40,7 @@ describe('Edit Change Password', () => {
     editChangePassword.ErrorPassword()
   });
 
-  it.only('Confirm New Password Invalid - Negative', () => {
+  it('Confirm New Password Invalid - Negative', () => {
     editChangePassword.clickChangePassword()
     editChangePassword.textChangePassword()
     editChangePassword.editCurrentPassword()
