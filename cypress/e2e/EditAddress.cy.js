@@ -197,7 +197,7 @@ describe('Edit Address Validation', () => {
     cy.ErrorCountry('Please select an option.')
   });
 
-  it.only('Empty Field - Negative', () => {
+  it('Empty Field - Negative', () => {
     editAddress.textEditAddress()
     editAddress.ClearFirstName()
     editAddress.ClearLastName()
