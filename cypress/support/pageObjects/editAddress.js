@@ -15,15 +15,6 @@ class editAddress{
   Region = '#region'
   Zip = '#zip'
   Country = '#country'
-  ButtonSave = '#form-validate > .actions-toolbar > div.primary > .action'
-  Success = '[data-ui-id="message-success"]'
-  FirstNameError = '#firstname-error'
-  LastNameError = '#lastname-error'
-  TelephoneError = '#telephone-error'
-  Street1Error = '#street_1-error'
-  CityError = '#city-error'
-  ZipError = '#zip-error'
-  CountryError = '#country-error'
 
   clickDropDown() {
     cy.get(this.DropDown).click()
@@ -76,12 +67,6 @@ class editAddress{
   MoreThanZip() {
     cy.get(this.Zip).clear().type('467890567')
   }
-  clickButtonSave() {
-    cy.get(this.ButtonSave).click()
-  }
-  VerifySuccess() {
-    cy.get(this.Success).should('contain.text', 'You saved the address.')
-  }
   ClearFirstName() {
     cy.get(this.FirstName).clear()
   }
@@ -114,27 +99,6 @@ class editAddress{
   }
   SelectCountry() {
     cy.get(this.Country).select('')
-  }
-  ErrorFirstName() {
-    cy.get(this.FirstNameError).should('be.visible').and('contain.text', 'This is a required field.')
-  }
-  ErrorLastName() {
-    cy.get(this.LastNameError).should('be.visible').and('contain.text', 'This is a required field.')
-  }
-  ErrorTelephone() {
-    cy.get(this.TelephoneError).should('be.visible').and('contain.text', 'This is a required field.')
-  }
-  ErrorStreet1() {
-    cy.get(this.Street1Error).should('be.visible').and('contain.text', 'This is a required field.')
-  }
-  ErrorCity() {
-    cy.get(this.CityError).should('be.visible').and('contain.text', 'This is a required field.')
-  }
-  ErrorZip() {
-    cy.get(this.ZipError).should('be.visible').and('contain.text', 'This is a required field.')
-  }
-  ErrorCountry() {
-    cy.get(this.CountryError).should('be.visible').and('contain.text', 'Please select an option.')
   }
 }
 module.exports = new editAddress()

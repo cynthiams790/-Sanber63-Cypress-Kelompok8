@@ -23,8 +23,8 @@ describe('Edit Address Validation', () => {
     editAddress.EditRegion()
     editAddress.EditZip()
     editAddress.EditCountry()
-    editAddress.clickButtonSave()
-    editAddress.VerifySuccess()
+    cy.clickButtonSave()
+    cy.verifySuccess('You saved the address.')
   });
   
   it('Edit Address First Name Empty - Negative', () => {
@@ -40,8 +40,8 @@ describe('Edit Address Validation', () => {
     editAddress.EditRegion()
     editAddress.EditZip()
     editAddress.EditCountry()
-    editAddress.clickButtonSave()
-    editAddress.ErrorFirstName()
+    cy.clickButtonSave()
+    cy.ErrorFirstName('This is a required field.')
   });
   
   it('Edit Address Last Name Empty - Negative', () => {
@@ -57,8 +57,8 @@ describe('Edit Address Validation', () => {
     editAddress.EditRegion()
     editAddress.EditZip()
     editAddress.EditCountry()
-    editAddress.clickButtonSave()
-    editAddress.ErrorLastName()
+    cy.clickButtonSave()
+    cy.ErrorLastName('This is a required field.')
   });
   
   it('Edit Address Company Empty - Negative', () => {
@@ -74,8 +74,8 @@ describe('Edit Address Validation', () => {
     editAddress.EditRegion()
     editAddress.EditZip()
     editAddress.EditCountry()
-    editAddress.clickButtonSave()
-    editAddress.VerifySuccess()
+    cy.clickButtonSave()
+    cy.verifySuccess('You saved the address.')
   });
   
   it('Edit Address Phone Number Empty - Negative', () => {
@@ -91,8 +91,8 @@ describe('Edit Address Validation', () => {
     editAddress.EditRegion()
     editAddress.EditZip()
     editAddress.EditCountry()
-    editAddress.clickButtonSave()
-    editAddress.ErrorTelephone()
+    cy.clickButtonSave()
+    cy.ErrorTelephone('This is a required field.')
   });
   
   it('Edit Address Street Address Empty - Negative', () => {
@@ -108,8 +108,8 @@ describe('Edit Address Validation', () => {
     editAddress.EditRegion()
     editAddress.EditZip()
     editAddress.EditCountry()
-    editAddress.clickButtonSave()
-    editAddress.ErrorStreet1()
+    cy.clickButtonSave()
+    cy.ErrorStreet1('This is a required field.')
   });
 
   it('Edit Address City Empty - Negative', () => {
@@ -125,8 +125,8 @@ describe('Edit Address Validation', () => {
     editAddress.EditRegion()
     editAddress.EditZip()
     editAddress.EditCountry()
-    editAddress.clickButtonSave()
-    editAddress.ErrorCity()
+    cy.clickButtonSave()
+    cy.ErrorCity('This is a required field.')
   });
 
   it('Edit Address State/Province Empty - Negative', () => {
@@ -142,8 +142,8 @@ describe('Edit Address Validation', () => {
     editAddress.ClearRegion()
     editAddress.EditZip()
     editAddress.EditCountry()
-    editAddress.clickButtonSave()
-    editAddress.VerifySuccess()
+    cy.clickButtonSave()
+    cy.verifySuccess('You saved the address.')
   });
 
   it('Edit Address Zip/Postal Code more than 5 - Negative', () => {
@@ -159,8 +159,8 @@ describe('Edit Address Validation', () => {
     editAddress.EditRegion()
     editAddress.MoreThanZip()
     editAddress.EditCountry()
-    editAddress.clickButtonSave()
-    editAddress.VerifySuccess()
+    cy.clickButtonSave()
+    cy.verifySuccess('You saved the address.')
   });
 
   it('Edit Address Zip/Postal Code Empty - Negative', () => {
@@ -176,8 +176,8 @@ describe('Edit Address Validation', () => {
     editAddress.EditRegion()
     editAddress.ClearZip()
     editAddress.EditCountry()
-    editAddress.clickButtonSave()
-    editAddress.ErrorZip()
+    cy.clickButtonSave()
+    cy.ErrorZip('This is a required field.')
   });
 
   it('Edit Address Country Empty - Negative', () => {
@@ -193,11 +193,11 @@ describe('Edit Address Validation', () => {
     editAddress.EditRegion()
     editAddress.EditZip()
     editAddress.SelectCountry()
-    editAddress.clickButtonSave()
-    editAddress.ErrorCountry()
+    cy.clickButtonSave()
+    cy.ErrorCountry('Please select an option.')
   });
 
-  it('Empty Field - Negative', () => {
+  it.only('Empty Field - Negative', () => {
     editAddress.textEditAddress()
     editAddress.ClearFirstName()
     editAddress.ClearLastName()
@@ -210,13 +210,13 @@ describe('Edit Address Validation', () => {
     editAddress.ClearRegion()
     editAddress.ClearZip()
     editAddress.SelectCountry()
-    editAddress.clickButtonSave()
-    editAddress.ErrorFirstName()
-    editAddress.ErrorLastName()
-    editAddress.ErrorTelephone()
-    editAddress.ErrorStreet1()
-    editAddress.ErrorCity()
-    editAddress.ErrorZip()
-    editAddress.ErrorCountry()
+    cy.clickButtonSave()
+    cy.ErrorFirstName('This is a required field.')
+    cy.ErrorLastName('This is a required field.')
+    cy.ErrorTelephone('This is a required field.')
+    cy.ErrorStreet1('This is a required field.')
+    cy.ErrorCity('This is a required field.')
+    cy.ErrorZip('This is a required field.')
+    cy.ErrorCountry('Please select an option.')
   });
 });

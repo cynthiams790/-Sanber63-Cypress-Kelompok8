@@ -2,7 +2,7 @@ import editChangeEmail from '../support/pageObjects/editChangeEmail';
 
 describe('Edit Change Email', () => {
   beforeEach(() => {
-    cy.visit('');
+    cy.visit('')
     cy.loginEdit('kelompok_8@gmail.com', 'Sanbercodekelompok8')
 
     editChangeEmail.clickDropDown()
@@ -15,8 +15,8 @@ describe('Edit Change Email', () => {
     editChangeEmail.textChangeEmail()
     editChangeEmail.EditEmail()
     editChangeEmail.editCurrentPassword()
-    editChangeEmail.ClickButtonSave()
-    editChangeEmail.VerifySuccess()
+    cy.buttonSave()
+    cy.verifySuccess('You saved the account information.')
   });
 
   it('Edit Change Invalid Email - Negative', () => {
@@ -24,8 +24,8 @@ describe('Edit Change Email', () => {
     editChangeEmail.textChangeEmail()
     editChangeEmail.InvalidEmail()
     editChangeEmail.editCurrentPassword()
-    editChangeEmail.ClickButtonSave()
-    editChangeEmail.EmailError()
+    cy.buttonSave()
+    cy.EmailError('Please enter a valid email address.')
   });
 
   it('Edit Change Invalid Password - Negative', () => {
@@ -33,8 +33,8 @@ describe('Edit Change Email', () => {
     editChangeEmail.textChangeEmail()
     editChangeEmail.EditEmail()
     editChangeEmail.InvalidCurrentPassword()
-    editChangeEmail.ClickButtonSave()
-    editChangeEmail.VerifyError()
+    cy.buttonSave()
+    cy.Error("The password doesn't match this account. Verify the password and try again.")
   });
   
   it('Email and Password Empty - Negative', () => {
@@ -42,8 +42,8 @@ describe('Edit Change Email', () => {
     editChangeEmail.textChangeEmail()
     editChangeEmail.ClearEmail()
     editChangeEmail.ClearCurrentPassword()
-    editChangeEmail.ClickButtonSave()
-    editChangeEmail.ErrorEmptyEmail()
-    editChangeEmail.ErrorEmptyCurrentPassword() 
+    cy.buttonSave()
+    cy.EmailError('This is a required field.')
+    cy.ErrorPassword('This is a required field.')
   });
 });

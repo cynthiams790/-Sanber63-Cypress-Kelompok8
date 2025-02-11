@@ -2,7 +2,7 @@ import editChangePassword from '../support/pageObjects/editChangePassword';
 
 describe('Edit Change Password', () => {
   beforeEach(() => {
-    cy.visit('');
+    cy.visit('')
     cy.loginEdit('kelompok_8@gmail.com', 'Sanbercodekelompok8')
 
     editChangePassword.clickDropDown()
@@ -16,8 +16,8 @@ describe('Edit Change Password', () => {
     editChangePassword.editCurrentPassword()
     editChangePassword.editPassword()
     editChangePassword.editPasswordConfirmation()
-    editChangePassword.ClickButtonSave()
-    editChangePassword.VerifySuccess()
+    cy.buttonSave()
+    cy.verifySuccess('You saved the account information.')
   });
 
   it('Current Password Invalid - Negative', () => {
@@ -26,8 +26,8 @@ describe('Edit Change Password', () => {
     editChangePassword.InvalidCurrentPassword()
     editChangePassword.editPassword()
     editChangePassword.editPasswordConfirmation()
-    editChangePassword.ClickButtonSave()
-    editChangePassword.VerifyError()
+    cy.buttonSave()
+    cy.Error("The password doesn't match this account. Verify the password and try again.")
   });
 
   it('New Password Invalid - Negative', () => {
@@ -36,8 +36,8 @@ describe('Edit Change Password', () => {
     editChangePassword.editCurrentPassword()
     editChangePassword.InvalidPassword()
     editChangePassword.InvalidPasswordConfirmation()
-    editChangePassword.ClickButtonSave()
-    editChangePassword.ErrorPassword()
+    cy.buttonSave()
+    cy.PasswordError('Minimum length of this field must be equal or greater than 8 symbols. Leading and trailing spaces will be ignored.')
   });
 
   it('Confirm New Password Invalid - Negative', () => {
@@ -46,8 +46,8 @@ describe('Edit Change Password', () => {
     editChangePassword.editCurrentPassword()
     editChangePassword.editPassword()
     editChangePassword.InvalidPasswordConfirmation()
-    editChangePassword.ClickButtonSave()
-    editChangePassword.ErrorPasswordConfirmation()
+    cy.buttonSave()
+    cy.PasswordErrorConfirmation('Please enter the same value again.')
   });
 
   it('Edit Change Password Empty - Negative', () => {
@@ -56,9 +56,9 @@ describe('Edit Change Password', () => {
     editChangePassword.ClearCurrentPassword()
     editChangePassword.ClearPassword()
     editChangePassword.ClearPasswordConfirmation()
-    editChangePassword.ClickButtonSave()
-    editChangePassword.ErrorEmptyCurrentPassword()
-    editChangePassword.ErrorEmptyPassword()
-    editChangePassword.ErrorEmptyPasswordConfirmation()
+    cy.buttonSave()
+    cy.ErrorPassword('This is a required field.')
+    cy.PasswordError('This is a required field.')
+    cy.PasswordErrorConfirmation('This is a required field.')
   });
 });

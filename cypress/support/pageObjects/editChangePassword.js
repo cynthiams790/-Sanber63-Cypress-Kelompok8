@@ -7,14 +7,7 @@ class editChangePassword{
   CurrentPassword = '#current-password'
   Password = '#password'
   PasswordConfirmation = '#password-confirmation'
-  ButtonSave = 'button[title="Save"]'
-  Success = '[data-ui-id="message-success"]'
-  Error = '[data-ui-id="message-error"]'
-  PasswordError = '#password-error'
   PasswordConfirmationError = '#mage-error'
-  EmptyCurrentPassword = '#current-password-error'
-  EmptyPassword = '#password-error'
-  EmptyPasswordConfirmation = '#password-confirmation-error'
   PasswordSuccess = '#password-strength-meter'
 
   clickDropDown() {
@@ -41,12 +34,6 @@ class editChangePassword{
   editPasswordConfirmation() {
     cy.get(this.PasswordConfirmation).type('Sanbercodekelompok8')
   }
-  ClickButtonSave() {
-    cy.get(this.ButtonSave).click()
-  }
-  VerifySuccess() {
-    cy.get(this.Success).should('contain.text', 'You saved the account information.')
-  }
   InvalidCurrentPassword() {
     cy.get(this.CurrentPassword).type('xxx')
   }
@@ -56,15 +43,9 @@ class editChangePassword{
   InvalidPasswordConfirmation() {
     cy.get(this.PasswordConfirmation).type('xxx')
   }
-  VerifyError() {
-    cy.get(this.Error).should('contain.text', "The password doesn't match this account. Verify the password and try again.")
-  }
+  
   ErrorPassword() {
     cy.get(this.PasswordError).should('be.visible').and('contain.text', 'Minimum length of this field must be equal or greater than 8 symbols. Leading and trailing spaces will be ignored.')
-  }
- 
-  ErrorPasswordConfirmation() {
-    cy.get(this.EmptyPasswordConfirmation).should('be.visible').and('contain.text', 'Please enter the same value again.')
   }
   ClearCurrentPassword() {
     cy.get(this.CurrentPassword).clear()
@@ -74,15 +55,6 @@ class editChangePassword{
   }
   ClearPasswordConfirmation() {
     cy.get(this.PasswordConfirmation).clear()
-  }
-  ErrorEmptyCurrentPassword() {
-    cy.get(this.EmptyCurrentPassword).should('be.visible').and('contain.text', 'This is a required field.')
-  }
-  ErrorEmptyPassword() {
-    cy.get(this.EmptyPassword).should('be.visible').and('contain.text', 'This is a required field.')
-  }
-  ErrorEmptyPasswordConfirmation() {
-    cy.get(this.EmptyPasswordConfirmation).should('be.visible').and('contain.text', 'This is a required field.')
   }
 }
 module.exports = new editChangePassword()
